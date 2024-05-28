@@ -125,4 +125,5 @@ rule multiqc:
     conda:
          "envs/genomics.yaml"
     script:
-          "scripts/Genomics/1_Assembly/3_Evaluation/PlotCoverage.py""""
+          "scripts/Genomics/1_Assembly/3_Evaluation/PlotCoverage.py"
+          """
