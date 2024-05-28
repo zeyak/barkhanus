@@ -1,0 +1,1 @@
+dorado basecaller --emit-fastq -r dna_r10.4.1_e8.2_260bps_sup@v4.1.0 C:\Basecall\SBKI_220707_SRE > C:\Basecall\SBKI_220707_SRE_v6.fastq
