@@ -13,7 +13,7 @@
 
 rule glimmerhmm:
     input:
-        exon="resources/TrainGlimmerHMM/spiro_exons.cds",
+        exon="resources/TrainGlimmerHMM/spiro_exons.txt",
         mfasta= "resources/TrainGlimmerHMM/S_salmonicida.fasta",
         genome= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     params:
