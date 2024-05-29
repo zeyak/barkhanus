@@ -4,6 +4,7 @@ from Bio import SeqIO
 
 genome_file = snakemake.input.genome_file
 exon_file = snakemake.input.exon_file
+mfasta_file = snakemake.input.mfasta_file
 
 home_dir = snakemake.params.home_dir
 train_dir = snakemake.params.train_dir
