@@ -27,8 +27,8 @@ rule all:
                 assembler=[ "flye/raw"],
                 long_reads=["nanopore"]),
          #quast
-         expand("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/{process}",
-                assembler=[ "flye/raw"], process=["raw"]),
+         expand("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/",
+                assembler=[ "flye/raw"]),
         #deeptools
          #expand("results/Genomics/1_Assembly/3_Evaluation/deeptools/{assembler}.png",
           #      assembler=[ "flye/raw"]),

@@ -82,11 +82,11 @@ rule winnowmap:
 #Evaluation
 rule quast:
     input:
-         assembly="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{process}/assembly.fasta",
+         assembly="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
     params:
           threads=32
     output:
-          report_dir=directory("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/{process}/")
+          report_dir=directory("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/")
     conda:
          "envs/genomics.yaml"
     script:
