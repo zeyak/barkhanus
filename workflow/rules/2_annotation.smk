@@ -32,7 +32,7 @@ rule glihmmerhmm:
         mfasta_file= "resources/Train_GlimmerHMM/ssk.cns.fa"
     output:
         gff_output= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
-        conf_file= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/train_0_100.cfg"
+        conf_file= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/{assembler}/train_0_100.cfg"
     params:
         home_dir= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/",
         train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm",
