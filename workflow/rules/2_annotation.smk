@@ -1,4 +1,4 @@
-rule prodigal:
+"""rule prodigal:
     input:
          assembly="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
     output:
@@ -23,8 +23,8 @@ rule glimmerhmm_:
     conda:
         "envs/genomics.yaml"
     script:
-        "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py"
-
+        "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py""
+"""
 rule glihmmerhmm:
     input:
         genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
