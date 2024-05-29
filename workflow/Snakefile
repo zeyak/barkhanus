@@ -34,6 +34,10 @@ rule all:
                 assembler=[ "flye/raw"]),
         #multiqc
          expand("results/Genomics/1_Assembly/3_Evaluation/multiqc/{assembler}",
-          assembler=[ "flye/raw"])
+          assembler=[ "flye/raw"]),
+         #glimmerhmm
+         expand("results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
+           assembler=["flye/raw"])
+
 
 

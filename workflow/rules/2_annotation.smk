@@ -9,7 +9,7 @@ rule prodigal:
          "envs/genomics.yaml"
     script:
           "scripts/Genomics/2_Annotation/1_Structural/ProdigalAnnotation.py"
-rule glimmerhmm:
+rule glimmerhmm_:
     input:
         training_genes="resources/Train_GlimmerHMM/training_genes.cds",
         genome= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
@@ -24,6 +24,22 @@ rule glimmerhmm:
         "envs/genomics.yaml"
     script:
         "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py"
+
+rule glihmmerhmm:
+    input:
+        genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
+        exon_file= "resources/Train_GlimmerHMM/training_for_glimmerhmm.cds",
+        mfasta_file= "resources/Train_GlimmerHMM/ssk.cns.fa"
+    output:
+        gff_output= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
+        conf_file= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/train_0_100.cfg"
+    params:
+        home_dir= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/",
+        train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm",
+    conda:
+         "envs/genomics.yaml"
+    script:
+     "scripts/Genomics/2_Annotation/1_Structural/glimmerhmm.py"
 
 rule augustus:
     input:

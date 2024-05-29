@@ -1,36 +1,39 @@
-import sys
+from snakemake.shell import shell
 import subprocess
 from Bio import SeqIO
 
-home_dir = snakemake.input.home_dir
 genome_file = snakemake.input.genome_file
 exon_file = snakemake.input.exon_file
-train_dir = snakemake.input.train_dir
-conf_file = snakemake.input.conf_file
+mfasta_file = snakemake.input.mfasta_file
+
+home_dir = snakemake.params.home_dir
+train_dir = snakemake.params.train_dir
+
+conf_file = snakemake.output.conf_file
 gff_output = snakemake.output.gff_output
 
-#def trainGlimmerHMM(mfasta_file, exon_file, args):
-#    ''' train GlimmerHMM with core genes
-#        core genes are prepared as a tab delimited exon files.
-#        trained results are written into a train directory
-#    '''
-#    command = ['/opt/feifei/GlimmerHMM/train/trainGlimmerHMM', mfasta_file, exon_file] \
-#              + sum(map(list, zip(args.keys(), args.values())), [])
-#    cline = subprocess.Popen(command, stdout = subprocess.PIPE)
-#    cline.stdout.close()
-#    assert(cline.wait() == 0)
-
-
-def glimmerhmm(genome_file, train_dir_for_genome, args):
-    ''' Run glimmerHMM to predict genes/exons '''
-
-    command = ['/opt/feifei/bin/glimmerhmm', genome_file, train_dir] \
-            + sum(map(list, zip(args.keys(), args.values())), [])
+def trainGlimmerHMM(mfasta_file, exon_file, args):
+    ''' train GlimmerHMM with core genes
+        core genes are prepared as a tab delimited exon files.
+        trained results are written into a train directory
+    '''
+    command = ['trainGlimmerHMM', mfasta_file, exon_file] \
+              + sum(map(list, zip(args.keys(), args.values())), [])
     cline = subprocess.Popen(command, stdout = subprocess.PIPE)
     cline.stdout.close()
     assert(cline.wait() == 0)
 
 
+def glimmerhmm(genome_file, train_dir, args):
+    ''' Run glimmerHMM to predict genes/exons '''
+
+    command = ['glimmerhmm', genome_file, train_dir] \
+            + sum(map(list, zip(args.keys(), args.values())), [])
+    cline = subprocess.Popen(command, stdout = subprocess.PIPE)
+    cline.stdout.close()
+    assert(cline.wait() == 0)
+
+"""
 home_dir = "/opt/zeynep/hexamita/annotation/glimmerHMM/"
 #mfasta_file = "ssk.cns.fa"
 genome_file = "../../pilon/2nd_pilon/hexamita_pilon_clean_headers.fasta"
@@ -38,9 +41,10 @@ exon_file = "/opt/zeynep/hexamita/annotation/glimmerHMM/hexamita_training_genes2
 train_dir = "trainingglimmerhmm"
 conf_file = "trainingglimmerhmm/train_0_100.cfg"
 gff_output = "glimmerhmm.prediction.gff"
+"""
 
 
-#trainGlimmerHMM(mfasta_file, exon_file, {'-d': train_dir,'-n':'150', '-v':'50'})
+trainGlimmerHMM(mfasta_file, exon_file, {'-d': train_dir,'-n':'150', '-v':'50'})
 
 # Modify the train config file to add onlytga=1
 with open(conf_file, 'a') as conf_h:

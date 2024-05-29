@@ -94,7 +94,7 @@ rule quast:
 
 rule multiqc:
     input:
-         input_dir="results/Genomics/1_Assembly/3_Evaluation/",
+         input_dir="results/Genomics/1_Assembly/",
     params:
           threads=32
     output:
