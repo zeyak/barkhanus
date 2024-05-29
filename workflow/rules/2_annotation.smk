@@ -27,7 +27,7 @@ rule glimmerhmm:
     script:
         "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py"
 
-rule glihmmerhmm_:
+"""rule glihmmerhmm_:
     input:
         genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
         exon_file= "resources/TrainGlimmerHMM/training_for_glimmerhmm.cds",
@@ -43,6 +43,7 @@ rule glihmmerhmm_:
          "envs/genomics.yaml"
     script:
      "scripts/Genomics/2_Annotation/1_Structural/glimmerhmm.py"
+     """
 
 rule augustus:
     input:
