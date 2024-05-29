@@ -1,11 +1,12 @@
 from snakemake.shell import shell
 
-training_genes = snakemake.input.training_genes
+mfasta_file = snakemake.input.mfasta_file
 genome = snakemake.input.genome
+exon_file = snakemake.input.exon_file
 
 gff = snakemake.output.gff
-trained_genes = snakemake.output.trained_genes
+train_dir = snakemake.output.train_dir
 
-shell(f"trainGlimmerHMM {genome} {training_genes} -n 150 -v 50 -d {trained_genes}")
+shell(f"trainGlimmerHMM {mfasta_file} {exon_file} -n 150 -v 50 -d {train_dir}")
 #shell(f"python glimmerhmm.py")
-#shell(f"glimmerhmm {genome} {training_genes} -o {gff} -g")
+shell(f"glimmerhmm -g {genome} -o {gff} {train_dir}")

@@ -9,23 +9,25 @@
          "envs/genomics.yaml"
     script:
           "scripts/Genomics/2_Annotation/1_Structural/ProdigalAnnotation.py"
-rule glimmerhmm_:
+          """
+
+rule glimmerhmm:
     input:
-        training_genes="resources/TrainGlimmerHMM/training_genes.cds",
-        genome= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
+        exon_file="resources/TrainGlimmerHMM/spiro_exons.csv",
+        mfasta_file= "resources/TrainGlimmerHMM/S_salmonicida.fasta",
+        genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     params:
           n=150,
           v=50
     output:
-        trained_genes = "results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome_trained_genes.hmm",
+        train_dir = directory("results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/trainingglimmerhmm"),
         gff="results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
-        faa="results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.faa",
     conda:
         "envs/genomics.yaml"
     script:
-        "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py""
-"""
-rule glihmmerhmm:
+        "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py"
+
+rule glihmmerhmm_:
     input:
         genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
         exon_file= "resources/TrainGlimmerHMM/training_for_glimmerhmm.cds",
