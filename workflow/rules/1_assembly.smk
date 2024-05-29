@@ -18,7 +18,8 @@ rule flye:
           genome_size="114m",
           threads=32,
     output:
-          out_dir=directory("results/Genomics/1_Assembly/2_Assemblers/flye/{process}/")
+          #out_dir=directory("results/Genomics/1_Assembly/2_Assemblers/flye/{process}/")
+           out_dir= "results/Genomics/1_Assembly/2_Assemblers/flye/{process}/assembly.fasta"
     conda:
          "envs/genomics.yaml"
     script:
