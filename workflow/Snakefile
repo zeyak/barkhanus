@@ -15,25 +15,25 @@ rule all:
                process=["raw"]),
          #blastn contamination detection
          #expand("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly.blastn",
-          #      assembler=["flye"]),
+          #      assembler=["flye/raw"]),
           #winnowmap evaluation
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/merlyDB",
-                assembler=[ "flye"],
+                assembler=[ "flye/raw"],
                 genome=["barkhanus"]),
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/repetitive_k15.txt",
-                assembler=[ "flye"],
+                assembler=[ "flye/raw"],
                 genome=["barkhanus"]),
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/{long_reads}.bam",
-                assembler=[ "flye"],
+                assembler=[ "flye/raw"],
                 long_reads=["nanopore", "pacbio"]),
          #quast
          expand("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/{process}",
-                assembler=[ "flye"], process=["raw"]),
+                assembler=[ "flye/raw"], process=["raw"]),
         #deeptools
          #expand("results/Genomics/1_Assembly/3_Evaluation/deeptools/{assembler}.png",
-          #      assembler=[ "flye"]),
+          #      assembler=[ "flye/raw"]),
         #multiqc
          #expand("results/Genomics/1_Assembly/3_Evaluation/multiqc/{assembler}",
-         # assembler=[ "flye"])
+         # assembler=[ "flye/raw"])
          #
 
