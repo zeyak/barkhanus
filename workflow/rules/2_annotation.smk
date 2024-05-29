@@ -13,9 +13,9 @@
 
 rule glimmerhmm:
     input:
-        exon_file="resources/TrainGlimmerHMM/spiro_exons.csv",
-        mfasta_file= "resources/TrainGlimmerHMM/S_salmonicida.fasta",
-        genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
+        exon="resources/TrainGlimmerHMM/spiro_exons.csv",
+        mfasta= "resources/TrainGlimmerHMM/S_salmonicida.fasta",
+        genome= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     params:
           n=150,
           v=50
