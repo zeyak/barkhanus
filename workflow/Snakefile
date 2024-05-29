@@ -25,7 +25,7 @@ rule all:
                 genome=["barkhanus"]),
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/{long_reads}.bam",
                 assembler=[ "flye/raw"],
-                long_reads=["nanopore", "pacbio"]),
+                long_reads=["nanopore"]),
          #quast
          expand("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/{process}",
                 assembler=[ "flye/raw"], process=["raw"]),
