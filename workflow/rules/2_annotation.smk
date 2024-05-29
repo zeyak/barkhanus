@@ -11,7 +11,7 @@
           "scripts/Genomics/2_Annotation/1_Structural/ProdigalAnnotation.py"
 rule glimmerhmm_:
     input:
-        training_genes="resources/Train_GlimmerHMM/training_genes.cds",
+        training_genes="resources/TrainGlimmerHMM/training_genes.cds",
         genome= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
     params:
           n=150,
@@ -28,8 +28,8 @@ rule glimmerhmm_:
 rule glihmmerhmm:
     input:
         genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
-        exon_file= "resources/Train_GlimmerHMM/training_for_glimmerhmm.cds",
-        mfasta_file= "resources/Train_GlimmerHMM/ssk.cns.fa"
+        exon_file= "resources/TrainGlimmerHMM/training_for_glimmerhmm.cds",
+        mfasta_file= "resources/TrainGlimmerHMM/ssk.cns.fa"
     output:
         gff_output= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
         conf_file= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/{assembler}/train_0_100.cfg"
