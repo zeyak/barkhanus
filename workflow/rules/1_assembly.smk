@@ -66,12 +66,11 @@ rule meryl:
 rule winnowmap:
     input:
          genome="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
-         long_read="/data/zeynep/barkhanus_data/DNA/clean/{long_read}.fastq.gz",
+         long_read="/data/zeynep/barkhanus_data/DNA/raw/{long_read}.fastq.gz",
          merylDB="results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/merlyDB",
          repetitive_k15="results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/repetitive_k15.txt",
     output:
           sorted_bam="results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/{long_read}.bam",
-    #bai="results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/{long_read}.bai"
     params:
           threads=32,
           nanopore=True
