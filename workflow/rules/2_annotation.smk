@@ -111,7 +111,7 @@ rule make_diamond_db:
     conda:
         "envs/genomics.yaml"
     shell:
-        "makedb --in {input} --db {output}"
+        "diamond makedb --in {input} --db {output}"
 
 rule diamond_blastp:
     input:
