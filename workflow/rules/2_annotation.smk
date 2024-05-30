@@ -10,8 +10,8 @@
     script:
           "scripts/Genomics/2_Annotation/1_Structural/ProdigalAnnotation.py"
           """
-
-rule glimmerhmm:
+"""
+rule glimmerhmm_:
     input:
         exon="resources/TrainGlimmerHMM/spiro_exons.cds",
         mfasta= "resources/TrainGlimmerHMM/S_salmonicida.fa",
@@ -27,8 +27,8 @@ rule glimmerhmm:
         "envs/genomics.yaml"
     script:
         "scripts/Genomics/2_Annotation/1_Structural/GlimmerHMMAnnotation.py"
-
-"""rule glihmmerhmm_:
+"""
+rule glihmmerhmm:
     input:
         genome_file= "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
         exon_file= "resources/TrainGlimmerHMM/training_for_glimmerhmm.cds",
@@ -38,13 +38,13 @@ rule glimmerhmm:
         conf_file= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/{assembler}/train_0_100.cfg"
     params:
         home_dir= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/",
-        #train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/{assembler}/",
-        train_dir= "/opt/zeynep/barkhanus/.snakemake/conda/6b972f4ed338544efcb65943eb789bcf/bin/trainGlimmerHMM/trainingglimmerhmm/{assembler}/"
+        train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm2",
+        #train_dir= "/opt/zeynep/barkhanus/.snakemake/conda/6b972f4ed338544efcb65943eb789bcf/bin/trainGlimmerHMM/trainingglimmerhmm/{assembler}/"
     conda:
          "envs/genomics.yaml"
     script:
      "scripts/Genomics/2_Annotation/1_Structural/glimmerhmm.py"
-     """
+
 
 rule augustus:
     input:
