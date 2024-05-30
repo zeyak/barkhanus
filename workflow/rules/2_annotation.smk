@@ -38,8 +38,8 @@ rule glihmmerhmm:
         conf_file= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm/{assembler}/train_0_100.cfg"
     params:
         home_dir= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/",
-        train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm2",
-        #train_dir= "/opt/zeynep/barkhanus/.snakemake/conda/6b972f4ed338544efcb65943eb789bcf/bin/trainGlimmerHMM/trainingglimmerhmm/{assembler}/"
+        #train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm2",
+        train_dir= "/opt/zeynep/barkhanus/.snakemake/conda/6b972f4ed338544efcb65943eb789bcf/bin/trainGlimmerHMM/trainingglimmerhmm2/{assembler}/"
     conda:
          "envs/genomics.yaml"
     script:
