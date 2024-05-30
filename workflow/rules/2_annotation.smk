@@ -105,9 +105,9 @@ rule busco_plot:
 #Functional Annotation
 rule makeblastdb:
     input:
-        "results/Genomics/2_Annotation/1_Structural/{assembler}/{annotation}/genome.faa"
+        "resources/DiploProteoms/{db}.fa"
     output:
-        multiext("results/Genomics/2_Annotation/1_Structural/{assembler}/{annotation}/genome",
+        multiext("results/Genomics/2_Annotation/1_Functional/{db}",
             ".ndb",
             ".nhr",
             ".nin",
@@ -116,7 +116,7 @@ rule makeblastdb:
             ".ntf",
             ".nto")
     params:
-        outname="results/{type}/db/{db}"
+        outname="results/Genomics/2_Annotation/1_Functional/{db}"
     conda:
         "envs/genomics.yaml"
     shell:
@@ -126,14 +126,15 @@ rule diamond_blastp:
     input:
          genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa"
     output:
-          "results/Genomics/2_Annotation/2_Functional/{annotation}/{assembler}/genome_diplomonads.blastp"
+          "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome_diplomonads.blastp"
     params:
-          db_prefix="path/to/database_prefix",
-          outfmt=6,
+          db_prefix="results/Genomics/2_Annotation/1_Functional/{db}",
+          outfmt="6 qseqid sseqid evalue qlen slen length pident stitle",
+          evalue=0.00001,
           threads=32,
-          max_target_seqs=500,
+          max_target_seqs=1,
           max_hsps=1,
-          more_sensitive="",
+          more_sensitive="-b5 -c1",
     conda:
          "envs/genomics.yaml"
     script:
