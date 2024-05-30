@@ -39,7 +39,7 @@ rule glihmmerhmm:
     params:
         home_dir= "results/Genomics/2_Annotation/1_Structural/glimmerhmm/",
         #train_dir="results/Genomics/2_Annotation/1_Structural/glimmerhmm/trainingglimmerhmm2",
-        train_dir= "/opt/zeynep/barkhanus/.snakemake/conda/6b972f4ed338544efcb65943eb789bcf/bin/trainGlimmerHMM/trainingglimmerhmm2/{assembler}/"
+        train_dir= "/opt/zeynep/barkhanus/.snakemake/conda/6b972f4ed338544efcb65943eb789bcf/bin/trainingglimmerhmm2/{assembler}/"
     conda:
          "envs/genomics.yaml"
     script:
