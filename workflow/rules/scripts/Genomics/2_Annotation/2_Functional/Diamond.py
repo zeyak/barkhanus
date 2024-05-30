@@ -1,8 +1,8 @@
 from snakemake.shell import shell
 
 genome= snakemake.input.genome
+db = snakemake.input.db
 
-db_prefix = snakemake.params.db_prefix
 outfmt = snakemake.params.outfmt
 threads = snakemake.params.threads
 max_target_seqs = snakemake.params.max_target_seqs
@@ -12,7 +12,7 @@ more_sensitive = snakemake.params.more_sensitive
 output = snakemake.output
 
 shell(f"""diamond blastp --query {genome} \
- --db {db_prefix} \
+ --db {db} \
  --out {output} \
  --outfmt {outfmt} \
  -threads {threads} \
