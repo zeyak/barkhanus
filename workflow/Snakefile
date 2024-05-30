@@ -45,7 +45,7 @@ rule all:
            expand("results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp",
                  annotation=["glimmerhmm", "prodigal"],
                   assembler=["flye/raw"],
-                  db=["diplo_proteomes"]),
+                  db=["diplo_prot"]),
          #interproscan
         # expand("results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv",
          #       annotation=["glimmerhmm", "prodigal"],

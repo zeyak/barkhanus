@@ -103,24 +103,15 @@ rule busco_plot:
         "generate_plot.py -wd {input}"
 
 #Functional Annotation
-rule makeblastdb:
+rule make_dimaond_db:
     input:
         "resources/DiploProteoms/{db}.fa"
     output:
-        multiext("results/Genomics/2_Annotation/1_Functional/{db}",
-            ".ndb",
-            ".nhr",
-            ".nin",
-            ".not",
-            ".nsq",
-            ".ntf",
-            ".nto")
-    params:
-        outname="results/Genomics/2_Annotation/1_Functional/{db}"
+        "results/Genomics/2_Annotation/1_Functional/{db}.db"
     conda:
         "envs/genomics.yaml"
     shell:
-        'makeblastdb -dbtype nucl -in {input} -out {params.outname}'
+        "makedb --in {input} --db {output}"
 
 rule diamond_blastp:
     input:
