@@ -107,7 +107,7 @@ rule make_diamond_db:
     input:
         "resources/DiploProteoms/{db}.fa"
     output:
-        "results/Genomics/2_Annotation/1_Functional/{db}.db"
+        "results/Genomics/2_Annotation/1_Functional/{db}.fa.db"
     conda:
         "envs/genomics.yaml"
     shell:
