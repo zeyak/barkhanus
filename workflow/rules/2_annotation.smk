@@ -13,8 +13,8 @@
 
 rule glimmerhmm_:
     input:
-        exon_file = "resources/TrainGlimmerHMM/training_for_glimmerhmm.cds",
-        mfasta_file = "resources/TrainGlimmerHMM/ssk.cns.fa",
+        exon = "resources/TrainGlimmerHMM/training_for_glimmerhmm.cds",
+        mfasta = "resources/TrainGlimmerHMM/ssk.cns.fa",
         #exon="resources/TrainGlimmerHMM/spiro_exons.cds",
         #mfasta= "resources/TrainGlimmerHMM/S_salmonicida.fa",
         #mfasta= "resources/TrainGlimmerHMM/S_salmonicidaCDS.fasta",
