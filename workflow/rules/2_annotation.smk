@@ -103,7 +103,7 @@ rule busco_plot:
         "generate_plot.py -wd {input}"
 
 #Functional Annotation
-rule make_dimaond_db:
+rule make_diamond_db:
     input:
         "resources/DiploProteoms/{db}.fa"
     output:
@@ -115,21 +115,22 @@ rule make_dimaond_db:
 
 rule diamond_blastp:
     input:
-         genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa"
+        genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa"
     output:
-          "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
+        "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
     params:
-          db_prefix="results/Genomics/2_Annotation/1_Functional/{db}",
-          outfmt="6 qseqid sseqid evalue qlen slen length pident stitle",
-          evalue=0.00001,
-          threads=32,
-          max_target_seqs=1,
-          max_hsps=1,
-          more_sensitive="-b5 -c1",
+        db_prefix="results/Genomics/2_Annotation/1_Functional/{db}",
+        outfmt="6 qseqid sseqid evalue qlen slen length pident stitle",
+        evalue=0.00001,
+        threads=32,
+        max_target_seqs=1,
+        max_hsps=1,
+        more_sensitive="-b5 -c1"
     conda:
-         "envs/genomics.yaml"
+        "envs/genomics.yaml"
     script:
-          "scripts/Genomics/2_Annotation/2_Functional/Diamond.py"
+        "scripts/Genomics/2_Annotation/2_Functional/Diamond.py"
+
 rule eggnogmapper:
     input:
          proteome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa"
