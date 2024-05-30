@@ -42,7 +42,7 @@ rule all:
         # expand("results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
          #  assembler=["flye/raw"])
          #diamond_blastp
-           expand("results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/genome_diplomonads.blastp",
+           expand("results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome_diplomonads.blastp",
                  annotation=["glimmerhmm", "prodigal"],
                   assembler=["flye/raw"]),
          #interproscan
