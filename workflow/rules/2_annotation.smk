@@ -107,7 +107,7 @@ rule make_diamond_db:
     input:
         "resources/DiploProteoms/{db}.fa"
     output:
-        "results/Genomics/2_Annotation/1_Functional/{db}.fa.db"
+        "results/Genomics/2_Annotation/1_Functional/{db}.db"
     conda:
         "envs/genomics.yaml"
     shell:
@@ -116,7 +116,7 @@ rule make_diamond_db:
 rule diamond_blastp:
     input:
         genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa",
-        db= "results/Genomics/2_Annotation/1_Functional/{db}.fa.db.dmnd"
+        db= "results/Genomics/2_Annotation/1_Functional/{db}.db.dmnd"
     output:
         "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
     params:
