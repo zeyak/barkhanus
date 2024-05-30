@@ -1,4 +1,4 @@
-"""rule prodigal:
+rule prodigal:
     input:
          assembly="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
     output:
@@ -9,7 +9,6 @@
          "envs/genomics.yaml"
     script:
           "scripts/Genomics/2_Annotation/1_Structural/ProdigalAnnotation.py"
-          """
 
 rule glimmerhmm_:
     input:
