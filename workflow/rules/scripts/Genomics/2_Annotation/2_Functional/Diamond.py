@@ -18,5 +18,5 @@ shell(f"""diamond blastp --query {genome} \
  -threads {threads} \
  -max_target_seqs {max_target_seqs} \
  -max_hsps {max_hsps} \
- --more-sensitive {more_sensitive}
+ {more_sensitive}
 """)
