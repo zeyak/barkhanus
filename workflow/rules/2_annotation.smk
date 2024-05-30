@@ -126,7 +126,7 @@ rule diamond_blastp:
     input:
          genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa"
     output:
-          "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome_diplomonads.blastp"
+          "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
     params:
           db_prefix="results/Genomics/2_Annotation/1_Functional/{db}",
           outfmt="6 qseqid sseqid evalue qlen slen length pident stitle",
