@@ -150,7 +150,7 @@ rule interproscan:
     input:
          proteome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa"
     output:
-          "results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv"
+          outdir= "results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv"
     params:
           threads=32,
     conda:
