@@ -47,7 +47,7 @@ rule all:
             #      assembler=["flye/raw"],
              #     db=["diplo_prot"]),
          #interproscan
-         expand("results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interpro",
+         expand("results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv",
                 annotation=["glimmerhmm", "prodigal"],
                 assembler=["flye/raw"]),
 
