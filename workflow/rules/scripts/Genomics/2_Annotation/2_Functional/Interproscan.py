@@ -2,7 +2,7 @@ from snakemake.shell import shell
 
 proteome = snakemake.input.proteome
 threads = snakemake.params.threads
-outdir = snakemake.params.outdir
+outdir = snakemake.output.outdir
 
 #remove the stars representing the stop codons
 shell(f"""sed 's/*//' {proteome} > {proteome}_.faa""")
