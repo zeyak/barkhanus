@@ -19,5 +19,4 @@ shell(f"""diamond blastp --query {genome} \
 -max_target_seqs {max_target_seqs} \
 -max_hsps {max_hsps} \
 --more_sensitive {more_sensitive} \
---tmpdir /tmp
 """)
