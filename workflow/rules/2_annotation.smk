@@ -125,7 +125,7 @@ rule diamond_blastp:
         threads=32,
         max_target_seqs=1,
         max_hsps=1,
-        more_sensitive="--more-sensitive -b5 -c1"
+        more_sensitive="-b5 -c1"
     conda:
         "envs/genomics.yaml"
     script:
