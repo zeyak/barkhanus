@@ -47,9 +47,9 @@ rule all:
             #      assembler=["flye/raw"],
              #     db=["diplo_prot"]),
          #interproscan
-         expand("results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv",
-                annotation=["glimmerhmm", "prodigal"],
-                assembler=["flye/raw"]),
+        #expand("results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv",
+         #       annotation=["glimmerhmm", "prodigal"],
+          #      assembler=["flye/raw"]),
         #Genome level analysis
         #repeatmodeler
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fasta",
