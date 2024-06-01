@@ -49,9 +49,9 @@ rule tRNAscan:
          genome="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     params: threads=32
     output:
-          tRNA="results/Genomics/1_Assembly/2_Assemblers/tRNAscan/{assembler}/genome.tRNAscan",
-          stats="results/Genomics/1_Assembly/2_Assemblers/tRNAscan/{assembler}/genome.stats",
-          gff="results/Genomics/1_Assembly/2_Assemblers/tRNAscan/{assembler}/genome.gff"
+          tRNA="results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.tRNAscan",
+          stats="results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.stats",
+          gff="results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.gff"
     conda:
          "envs/genomics.yaml"
     script:
@@ -62,8 +62,8 @@ rule tRNAscan_cov:
          genome="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     params: threads=32
     output:
-          tRNA="results/Genomics/1_Assembly/2_Assemblers/tRNAscan/sensitive_search/{assembler}/genome.tRNAscan_cov",
-          stats="results/Genomics/1_Assembly/2_Assemblers/tRNAscan/sensitive_search/{assembler}/genome.stats_cov"
+          tRNA="results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/sensitive_search/{assembler}/genome.tRNAscan_cov",
+          stats="results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/sensitive_search/{assembler}/genome.stats_cov"
     conda:
          "envs/genomics.yaml"
     script:
