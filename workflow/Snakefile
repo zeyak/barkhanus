@@ -50,29 +50,24 @@ rule all:
          expand("results/Genomics/2_Annotation/2_Functional/interproscan/{annotation}/{assembler}/interproscan_results.tsv",
                 annotation=["glimmerhmm", "prodigal"],
                 assembler=["flye/raw"]),
+        #Genome level analysis
         #repeatmodeler
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fasta",
-                annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #repeatmasker
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}",
-                annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #tRNAscan
          expand("results/Genomics/1_Assembly/2_Assembly/tRNAscan/{assembler}/genome.tRNAscan",
-                annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #tRNAscan_cov
          expand("results/Genomics/1_Assembly/2_Assembly/tRNAscan/sensitive_search/{assembler}/genome.tRNAscan_cov",
-                annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #barrnap
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/barrnap/{assembler}/genome.rrna.gff",
-                annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #cdhit
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
-                annotation=["glimmerhmm"],
                 assembler=["flye/raw"],
                 n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]),
         #orthofinder
