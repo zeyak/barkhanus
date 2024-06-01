@@ -51,27 +51,27 @@ rule all:
                 annotation=["glimmerhmm", "prodigal"],
                 assembler=["flye/raw"]),
         #repeatmodeler
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{annotation}/{assembler}/genome_db-families.fasta",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fasta",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #repeatmasker
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{annotation}/{assembler}",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #tRNAscan
-         expand("results/Genomics/1_Assembly/2_Assembly/tRNAscan/{annotation}/{assembler}/genome.tRNAscan",
+         expand("results/Genomics/1_Assembly/2_Assembly/tRNAscan/{assembler}/genome.tRNAscan",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #tRNAscan_cov
-         expand("results/Genomics/1_Assembly/2_Assembly/tRNAscan/sensitive_search/{annotation}/{assembler}/genome.tRNAscan_cov",
+         expand("results/Genomics/1_Assembly/2_Assembly/tRNAscan/sensitive_search/{assembler}/genome.tRNAscan_cov",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #barrnap
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/barrnap/{annotation}/{assembler}/genome.rrna.gff",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/barrnap/{assembler}/genome.rrna.gff",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"]),
          #cdhit
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{annotation}/{assembler}/genome_{n}.cdhit",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"],
                 n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]),
