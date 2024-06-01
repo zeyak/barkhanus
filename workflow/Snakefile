@@ -58,10 +58,10 @@ rule all:
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}",
                 assembler=["flye/raw"]),
          #tRNAscan
-         expand("results/Genomics/1_Assembly/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.tRNAscan",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.tRNAscan",
                 assembler=["flye/raw"]),
          #tRNAscan_cov
-         expand("results/Genomics/1_Assembly/1_GenomeStructureLevel/tRNAscan/sensitive_search/{assembler}/genome.tRNAscan_cov",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/sensitive_search/{assembler}/genome.tRNAscan_cov",
                 assembler=["flye/raw"]),
          #barrnap
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/barrnap/{assembler}/genome.rrna.gff",
