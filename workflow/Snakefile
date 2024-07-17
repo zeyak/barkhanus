@@ -3,8 +3,7 @@ configfile: "config/config.yaml"
 include: "rules/1_assembly.smk"
 include: "rules/2_annotation.smk"
 include: "rules/3_genome_level.smk"
-include: "rules/4_homology_level.smk"
-include: "rules/5_domain_level.smk"
+
 
 rule all:
     input:
@@ -70,8 +69,6 @@ rule all:
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
                 assembler=["flye/raw"],
                 n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]),
-        #orthofinder
-          #  "results/ComparativeGenomics/2_SequenceSimilarityLevel/"
-        #orthofinder_rerun
+
 
 
