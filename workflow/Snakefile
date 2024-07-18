@@ -51,7 +51,7 @@ rule all:
           #      assembler=["flye/raw"]),
         #Genome level analysis
         #repeatmodeler
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fasta",
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fa",
                 assembler=["flye/raw"]),
          #repeatmasker
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}",

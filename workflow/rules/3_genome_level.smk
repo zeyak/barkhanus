@@ -22,7 +22,7 @@ rule repeatmodeler:
     input:
          db="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db.nhr"
     output:
-          "results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fasta"
+          "results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fa"
     params:
           db_name="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db",
           threads = 32,
@@ -36,7 +36,7 @@ rule repeatmodeler:
 rule repeatmasker:
     input:
          genome="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",
-         lib="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fasta"
+         lib="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fa"
     output:
           directory("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}")
     conda:
