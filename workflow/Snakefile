@@ -52,10 +52,10 @@ rule all:
         #Genome level analysis
         #repeatmodeler
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fa",
-                assembler=["flye/raw"]),
+                assembler=["flye/raw", "spiro"]),
          #repeatmasker
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}",
-                assembler=["flye/raw"]),
+                assembler=["flye/raw", "spiro"]),
          #tRNAscan
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.tRNAscan",
                 assembler=["flye/raw"]),
@@ -66,9 +66,9 @@ rule all:
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/barrnap/{assembler}/genome.rrna.gff",
                 assembler=["flye/raw"]),
          #cdhit
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
-                assembler=["flye/raw"],
-                n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1])
+         #expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
+          #      assembler=["flye/raw"],
+           #     n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1])
 
 
 
