@@ -13,7 +13,6 @@ rule build_database_repeatmodeler:
                    ".translation")
     params:
           db_name="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db",
-          out_dir = "results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/"
     conda:
          "envs/genomics.yaml"
     script:
@@ -27,7 +26,8 @@ rule repeatmodeler:
     params:
           db_name="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db",
           threads = 32,
-          engine="ncbi"
+          engine="ncbi",
+          out_dir= "results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/"
     conda:
          "envs/genomics.yaml"
     script:
