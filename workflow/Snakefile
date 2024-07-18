@@ -52,10 +52,10 @@ rule all:
         #Genome level analysis
         #repeatmodeler
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db-families.fa",
-                assembler=["flye/raw", "spiro"]),
+                assembler=["flye/raw", "spiro", "HIN", "wb", "muris"]),
          #repeatmasker
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/RMasker/{assembler}",
-                assembler=["flye/raw", "spiro"]),
+                assembler=["flye/raw", "spiro", "HIN", "wb", "muris"]),
          #tRNAscan
          expand("results/ComparativeGenomics/1_GenomeStructureLevel/tRNAscan/{assembler}/genome.tRNAscan",
                 assembler=["flye/raw"]),
