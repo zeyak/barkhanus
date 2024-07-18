@@ -12,7 +12,8 @@ rule build_database_repeatmodeler:
                    ".nsq",
                    ".translation")
     params:
-          db_name="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db"
+          db_name="results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/genome_db",
+          out_dir = "results/ComparativeGenomics/1_GenomeStructureLevel/RModeler/{assembler}/"
     conda:
          "envs/genomics.yaml"
     script:
