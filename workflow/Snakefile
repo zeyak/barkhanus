@@ -15,7 +15,7 @@ rule all:
          #blastn contamination detection
          #expand("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly.blastn",
           #      assembler=["flye/raw"]),
-          #winnowmap evaluation
+         #winnowmap evaluation
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/merlyDB",
                 assembler=[ "flye/raw"],
                 genome=["barkhanus"]),
@@ -28,18 +28,18 @@ rule all:
          #quast
          expand("results/Genomics/1_Assembly/3_Evaluation/quast/{assembler}/",
                 assembler=[ "flye/raw"]),
-        #deeptools
+         #deeptools
          expand("results/Genomics/1_Assembly/3_Evaluation/deeptools/{assembler}.png",
                 assembler=[ "flye/raw"]),
-        #multiqc
+         #multiqc
          expand("results/Genomics/1_Assembly/3_Evaluation/multiqc/{assembler}",
           assembler=[ "flye/raw"]),
          #prodigal
          expand("results/Genomics/2_Annotation/1_Structural/prodigal/{assembler}/genome.gff",
                 assembler=["flye/raw"]),
          #glimmerhmm
-        # expand("results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
-         #  assembler=["flye/raw"])
+         expand("results/Genomics/2_Annotation/1_Structural/glimmerhmm/{assembler}/genome.gff",
+                assembler=["flye/raw"])
          #diamond_blastp
          expand("results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp",
                  annotation=["glimmerhmm", "prodigal"],
