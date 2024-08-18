@@ -113,7 +113,7 @@ rule make_diamond_db:
     shell:
         "diamond makedb --in {input} --db {output}"
 
-rule diamond_blastp:
+"""rule diamond_blastp:
     input:
         genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa",
         db= "resources/DiploProteoms/{db}.db.dmnd"
@@ -130,6 +130,23 @@ rule diamond_blastp:
         "envs/genomics.yaml"
     script:
         "scripts/Genomics/2_Annotation/2_Functional/Diamond.py"
+        """
+
+rule diamond_blastp_:
+    input:
+        genome = "results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa",
+        db = "resources/DiploProteoms/{db}.db.dmnd"
+    output:
+          "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
+    params:
+          outfmt="6 qseqid sseqid evalue qlen slen length pident stitle",
+          evalue=0.00001,
+          threads=32,
+          more_sensitive="-b5 -c1"
+    conda:
+         "envs/genomics.yaml"
+    script:
+          "scripts/Genomics/2_Annotation/2_Functional/Diamond_.py"
 
 rule eggnogmapper:
     input:
