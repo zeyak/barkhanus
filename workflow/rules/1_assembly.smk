@@ -49,6 +49,23 @@ rule blastn:
     script:
         "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
 
+rule blastn_est_tag:
+    input:
+        query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
+        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
+
+    output:
+        "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}/assembly.blastn"
+    params:
+        outfmt= "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen stitle",
+        threads=32,
+        evalue=1e-10,
+        db_prefix="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}"
+    conda:
+        "envs/genomics.yaml"
+    script:
+        "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
+
 rule meryl:
     input:
          genome="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta",

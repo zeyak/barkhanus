@@ -15,6 +15,9 @@ rule all:
          #blastn contamination detection
          #expand("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly.blastn",
           #      assembler=["flye/raw"]),
+         #EST tag evaluation
+            expand("results/Genomics/1_Assembly/3_Evaluation/est_tag/{assembler}/assembly.est_tag",
+                    assembler=["flye/raw"]),
          #winnowmap evaluation
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/merlyDB",
                 assembler=[ "flye/raw"],
