@@ -17,7 +17,8 @@ rule all:
           #      assembler=["flye/raw"]),
          #EST tag evaluation
             expand("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}/assembly_est.blastn",
-                    assembler=["flye/raw"]),
+                    assembler=["flye/raw"],
+                   db=["assembly"]),
          #winnowmap evaluation
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/merlyDB",
                 assembler=[ "flye/raw"],
