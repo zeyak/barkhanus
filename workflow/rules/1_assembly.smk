@@ -49,13 +49,23 @@ rule blastn:
     script:
         "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
 
-rule blastn_est_tag:
+rule make_diamond_db:
+    input:
+        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.fasta"
+    output:
+        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.db.dmnd"
+    conda:
+        "envs/genomics.yaml"
+    shell:
+        "diamond makedb --in {input} --db {output}"
+
+rule diamond_blastn_est_tag:
     input:
         query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
-        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
+        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.db.dmnd"
 
     output:
-        "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}/assembly.blastn"
+        "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}_est.blastn"
     params:
         outfmt= "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen stitle",
         threads=32,

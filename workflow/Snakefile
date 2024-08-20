@@ -16,7 +16,7 @@ rule all:
          #expand("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly.blastn",
           #      assembler=["flye/raw"]),
          #EST tag evaluation
-            expand("results/Genomics/1_Assembly/3_Evaluation/est_tag/{assembler}/assembly.est_tag",
+            expand("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}/assembly_est.blastn",
                     assembler=["flye/raw"]),
          #winnowmap evaluation
          expand("results/Genomics/1_Assembly/3_Evaluation/winnowmap/{assembler}/merlyDB",
