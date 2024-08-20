@@ -75,7 +75,7 @@ rule diamond_blastn_est_tag:
     conda:
         "envs/genomics.yaml"
     script:
-        "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
+        "scripts/Genomics/1_Assembly/3_Evaluation/Diamond_est.py"
 
 rule meryl:
     input:
