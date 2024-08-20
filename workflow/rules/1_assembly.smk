@@ -49,7 +49,7 @@ rule blastn:
     script:
         "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
 
-rule make_diamond_db:
+rule make_diamond_db_assembly:
     input:
         "results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.fasta"
     output:
