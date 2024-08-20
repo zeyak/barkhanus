@@ -70,7 +70,7 @@ rule diamond_blastn_est_tag:
         outfmt= "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen stitle",
         threads=32,
         evalue=1e-10,
-        db_prefix="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}"
+        db_prefix="results/Genomics/1_Assembly/2_Assemblers/{assembler}/"
     conda:
         "envs/genomics.yaml"
     script:
