@@ -51,9 +51,9 @@ rule blastn:
 
 rule makeblastdb:
     input:
-        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
+        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.fasta"
     output:
-        multiext("results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly",
+        multiext("results/Genomics/1_Assembly/2_Assemblers/{assembler}/]{db}",
             ".ndb",
             ".nhr",
             ".nin",
@@ -62,7 +62,7 @@ rule makeblastdb:
             ".ntf",
             ".nto")
     params:
-          outname="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly"
+          outname="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}"
     conda:
         "envs/genomics.yaml"
     shell:
@@ -72,14 +72,14 @@ rule blastn_EST:
     input:
         #query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
         query="/data/zeynep/barkhanus_data/EST/S_barkhanus_cloneMiner_cDNA_library.fasta",
-        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.ndb"
+        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.ndb"
     output:
-        "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly_est.blastn"
+        "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}_est.blastn"
     params:
         outfmt= "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen stitle",
         threads=32,
         evalue=1e-10,
-        db_prefix="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly"
+        db_prefix="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}"
     conda:
         "envs/genomics.yaml"
     script:
