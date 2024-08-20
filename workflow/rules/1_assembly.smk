@@ -53,7 +53,16 @@ rule makeblastdb:
     input:
         "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     output:
-        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta.nhr"
+        multiext("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}",
+                 ".ndb",
+                 ".nhr",
+                 ".nin",
+                 ".not",
+                 ".nsq",
+                 ".ntf",
+                 ".nto")
+    params:
+          outname="results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}"
     conda:
         "envs/genomics.yaml"
     shell:
@@ -63,7 +72,7 @@ rule blastn_EST:
     input:
         #query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
         query="/data/zeynep/barkhanus_data/EST/S_barkhanus_cloneMiner_cDNA_library.fasta",
-        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta.nhr"
+        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.ndb"
     output:
         "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly_est.blastn"
     params:
