@@ -65,7 +65,7 @@ rule makeblastdb:
     conda:
         "envs/genomics.yaml"
     shell:
-        "makeblastdb -in {input} -dbtype nucl"
+        "makeblastdb -in {input} -dbtype nucl -out {params.outname}"
 
 rule blastn_EST:
     input:
