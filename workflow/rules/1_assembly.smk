@@ -61,7 +61,8 @@ rule make_diamond_db_assembly:
 
 rule diamond_blastn_est_tag:
     input:
-        query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
+        #query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
+        query= "/data/zeynep/barkhanus_data/EST/S_barkhanus_cloneMiner_cDNA_library.fasta",
         db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.db.dmnd"
 
     output:
