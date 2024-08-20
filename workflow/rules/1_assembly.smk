@@ -54,11 +54,10 @@ rule makeblastdb:
         "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     output:
         multiext("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}",
-                 ".ndb",
                  ".nhr",
                  ".nin",
-                 ".not",
                  ".nsq",
+                 ".not",
                  ".ntf",
                  ".nto")
     params:
@@ -72,7 +71,7 @@ rule blastn_EST:
     input:
         #query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
         query="/data/zeynep/barkhanus_data/EST/S_barkhanus_cloneMiner_cDNA_library.fasta",
-        db="results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly.ndb"
+        db="results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly.nhr"
     output:
         "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly_est.blastn"
     params:
