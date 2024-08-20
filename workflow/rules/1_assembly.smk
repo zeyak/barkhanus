@@ -53,7 +53,7 @@ rule makeblastdb:
     input:
         "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     output:
-        multiext("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}",
+        multiext("results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly",
                  ".nhr",
                  ".nin",
                  ".nsq",
@@ -61,7 +61,7 @@ rule makeblastdb:
                  ".ntf",
                  ".nto")
     params:
-          outname="results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/{db}"
+          outname="results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly"
     conda:
         "envs/genomics.yaml"
     shell:
