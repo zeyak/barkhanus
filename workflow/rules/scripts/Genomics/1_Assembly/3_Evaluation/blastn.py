@@ -17,5 +17,3 @@ shell(f"""
     -num_threads {threads} \
     -evalue {evalue} \
 """)
-
-# snakemake -c1 --use-conda --printshellcmds

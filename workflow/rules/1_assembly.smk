@@ -49,7 +49,33 @@ rule blastn:
     script:
         "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
 
-rule make_diamond_db_assembly:
+rule makeblastdb:
+    input:
+        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
+    output:
+        "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta.nhr"
+    conda:
+        "envs/genomics.yaml"
+    shell:
+        "makeblastdb -in {input} -dbtype nucl"
+
+rule blastn_EST:
+    input:
+        query="resources/RawData/S_barkhanus_cloneMiner_cDNA_library.fasta",
+        db="results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta.nhr"
+    output:
+        "results/Genomics/1_Assembly/3_Evaluation/blastn/{assembler}/assembly_est.blastn"
+    params:
+        outfmt= "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen stitle",
+        threads=32,
+        evalue=1e-10,
+        db_prefix="results/Genomics/1_Assembly/2_Assemblers/{assembler}/"
+    conda:
+        "envs/genomics.yaml"
+    script:
+        "scripts/Genomics/1_Assembly/3_Evaluation/blastn.py"
+
+"""rule make_diamond_db_assembly:
     input:
         "results/Genomics/1_Assembly/2_Assemblers/{assembler}/{db}.fasta"
     output:
@@ -75,7 +101,11 @@ rule diamond_blastn_est_tag:
     conda:
         "envs/genomics.yaml"
     script:
-        "scripts/Genomics/1_Assembly/3_Evaluation/Diamond_est.py"
+        "scripts/Genomics/1_Assembly/3_Evaluation/Diamond_est.py""""
+
+
+
+
 
 rule meryl:
     input:
