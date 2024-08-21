@@ -6,4 +6,4 @@ rule orthofinder:
     conda:
          "envs/genomics.yaml"
     script:
-          "scripts/ComparativeGenomics/2_SequenceSimilarityLevel/Orthofinder.py"
+          "scripts/ComparativeGenomics/2_SequenceSimilarityLevel/orthofinder.py"
