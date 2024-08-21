@@ -1,6 +1,6 @@
 rule orthofinder:
     input:
-         proteome="resources/Comparison"
+         proteome="/opt/zeynep/barkhanus/resources/Comparison"
     output:
         directory('results/ComparativeGenomics/2_SequenceSimilarityLevel/')
     conda:
