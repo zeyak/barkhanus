@@ -2,7 +2,7 @@ rule orthofinder:
     input:
          proteome="resources/Comparison/"
     output:
-        directory('results/ComparativeGenomics/2_SequenceSimilarityLevel/orthofinder')
+        directory('results/ComparativeGenomics/2_SequenceSimilarityLevel/')
     conda:
          "envs/genomics.yaml"
     script:

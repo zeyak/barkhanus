@@ -70,7 +70,7 @@ rule all:
                 assembler=["flye/raw"]),
          #Comparative Genomics
          #orthofinder
-         "results/ComparativeGenomics/2_SequenceSimilarityLevel/orthofinder"
+         "results/ComparativeGenomics/2_SequenceSimilarityLevel/"
 
 
 
