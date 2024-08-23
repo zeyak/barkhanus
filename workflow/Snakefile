@@ -70,7 +70,10 @@ rule all:
                 assembler=["flye/raw"]),
          #Comparative Genomics
          #orthofinder
-         "results/ComparativeGenomics/2_SequenceSimilarityLevel/"
+         #"results/ComparativeGenomics/2_SequenceSimilarityLevel/"
+         expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
+           assembler=["flye"],
+           n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1])
 
 
 
