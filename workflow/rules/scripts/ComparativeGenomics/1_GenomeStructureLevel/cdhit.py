@@ -9,4 +9,4 @@ identity = snakemake.wildcards.n
 
 
 #shell(f"""cd-hit -i {genome} -o {out} -c {wildcards.n} -T {threads}""")
-shell(f"""cd-hit -i {genome} -o {out} -c {identity} -T {threads} -g 1 -M 5000""")
+shell(f"""cd-hit -i {genome} -o {out} -c {identity} -T {threads}""")
