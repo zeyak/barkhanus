@@ -1,4 +1,5 @@
 #configfile: "config/config.yaml"
+print(sys.getwcd())
 
 include: "rules/1_assembly.smk"
 include: "rules/2_annotation.smk"
