@@ -71,9 +71,9 @@ rule all:
          #Comparative Genomics
          #orthofinder
          #"results/ComparativeGenomics/2_SequenceSimilarityLevel/"
-         expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
-           assembler=["flye/raw"],
-           n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]),
+         #expand("results/ComparativeGenomics/1_GenomeStructureLevel/cdhit/{assembler}/genome_{n}.cdhit",
+          # assembler=["flye/raw"],
+          # n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]),
          expand("results/ComparativeGenomics/2_SequenceSimilarityLevel/cdhit/{annotation}/{assembler}/genome_{n}.cdhit",
                 annotation=["glimmerhmm"],
                 assembler=["flye/raw"],
