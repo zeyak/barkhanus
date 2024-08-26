@@ -79,7 +79,7 @@ rule all:
                 assembler=["flye/raw"],
                 n=[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]),
          #virulence_blastp diplo
-         expand("results/ComparativeGenomics/1_SequenceSimilarityLevel/blastp/{annotation}/{assembler}/{db}/virulence_{db}.blastp",
+         expand("results/ComparativeGenomics/2_SequenceSimilarityLevel/blastp/{annotation}/{assembler}/{db}/virulence_{db}.blastp",
                  annotation=["glimmerhmm"],
                   assembler=["flye/raw"],
                   db=["diplo_prot", "Comparison/bark"]),
