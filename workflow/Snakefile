@@ -1,6 +1,10 @@
 #configfile: "config/config.yaml"
-import sys
-print(sys.getcwd())
+import os
+# Now using os.getcwd() to get the current working directory
+current_directory = os.getcwd()
+
+# Your existing Snakemake rules and logic continue here
+
 
 include: "rules/1_assembly.smk"
 include: "rules/2_annotation.smk"
