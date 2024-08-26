@@ -105,18 +105,18 @@ rule busco_plot:
 #Functional Annotation
 rule make_diamond_db:
     input:
-        "resources/DiploProteoms/{db}.fa"
+        "resources/{db}/{db}.faa"
     output:
-        "resources/DiploProteoms/{db}.db.dmnd"
+        "resources/{db}/{db}.db.dmnd"
     conda:
         "envs/genomics.yaml"
     shell:
         "diamond makedb --in {input} --db {output}"
 
-"""rule diamond_blastp:
+"""rule diamond_blastp_hsp1:
     input:
         genome="results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa",
-        db= "resources/DiploProteoms/{db}.db.dmnd"
+        db= "resources/{db}/{db}.db.dmnd"
     output:
         "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
     params:
@@ -129,13 +129,13 @@ rule make_diamond_db:
     conda:
         "envs/genomics.yaml"
     script:
-        "scripts/Genomics/2_Annotation/2_Functional/Diamond.py"
+        "scripts/Genomics/2_Annotation/2_Functional/Diamond_hsp1.py"
         """
 
-rule diamond_blastp_:
+rule diamond_blastp:
     input:
         genome = "results/Genomics/2_Annotation/1_Structural/{annotation}/{assembler}/genome.faa",
-        db = "resources/DiploProteoms/{db}.db.dmnd"
+        db = "resources/{db}/{db}.db.dmnd"
     output:
           "results/Genomics/2_Annotation/2_Functional/blastp/{annotation}/{assembler}/{db}/genome.blastp"
     params:
@@ -146,7 +146,7 @@ rule diamond_blastp_:
     conda:
          "envs/genomics.yaml"
     script:
-          "scripts/Genomics/2_Annotation/2_Functional/Diamond_.py"
+          "scripts/Genomics/2_Annotation/2_Functional/Diamond.py"
 
 rule eggnogmapper:
     input:
