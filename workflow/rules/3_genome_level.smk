@@ -80,7 +80,7 @@ rule barrnap:
     script:
           "scripts/ComparativeGenomics/1_GenomeStructureLevel/barrnap.py"
 
-rule cdhit:
+"""rule cdhit:
     input:
         genome = "results/Genomics/1_Assembly/2_Assemblers/{assembler}/assembly.fasta"
     params:
@@ -90,3 +90,4 @@ rule cdhit:
          "envs/genomics.yaml"
     script:
           "scripts/ComparativeGenomics/1_GenomeStructureLevel/cdhit.py"
+          """
