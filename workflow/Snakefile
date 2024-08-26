@@ -1,6 +1,6 @@
 #configfile: "config/config.yaml"
 import sys
-print(sys.getwcd())
+print(sys.getcwd())
 
 include: "rules/1_assembly.smk"
 include: "rules/2_annotation.smk"
