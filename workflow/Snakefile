@@ -1,7 +1,13 @@
 #configfile: "config/config.yaml"
-import os
+
 # Now using os.getcwd() to get the current working directory
-print(current_directory = os.getcwd())
+import os
+
+current_directory = os.getcwd()
+
+# Correct way to print the current directory
+print(current_directory)
+
 
 # Your existing Snakemake rules and logic continue here
 
