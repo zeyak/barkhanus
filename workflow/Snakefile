@@ -1,15 +1,7 @@
 #configfile: "config/config.yaml"
-
-# Now using os.getcwd() to get the current working directory
 import os
-
 current_directory = os.getcwd()
-
-# Correct way to print the current directory
 print(current_directory)
-
-
-# Your existing Snakemake rules and logic continue here
 
 
 include: "rules/1_assembly.smk"

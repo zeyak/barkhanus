@@ -20,10 +20,15 @@ rule make_diamond_db:
 
 rule diamond_blastp_virulence:
     input:
-        virulence="resources/virulence/virulence_sequences.faa",
+        virulence="resources/{db}/virulence_sequences.faa",
         db = "resources/{db}/{db}.db.dmnd"
     output:
         'results/ComparativeGenomics/2_SequenceSimilarityLevel/diamond_blastp/'
+    params:
+          outfmt="6 qseqid sseqid evalue qlen slen length pident stitle",
+          evalue=0.00001,
+          threads=32,
+          more_sensitive="-b5 -c1"
     conda:
         "envs/genomics.yaml"
     script:
